@@ -13,7 +13,7 @@ import com.hcl.dto.PolicyNamesDto;
 import com.hcl.dto.TermsDescription;
 import com.hcl.entity.Policy;
 import com.hcl.entity.TermsAndConditions;
-import com.hcl.repository.PolicyDetailsRepository;
+import com.hcl.exception.PolicyException;
 import com.hcl.repository.PolicyRepository;
 import com.hcl.repository.TermDetailsRepository;
 
@@ -31,7 +31,7 @@ public class PolicyDetailsServiceImpl implements PolicyDetailsService {
 		PolicyNamesDto policyNames = new PolicyNamesDto();
 		
 		List<Policy> policyData = policyRepository.findAll();
-		List<PolicyIdDto> policyIdList = new ArrayList<PolicyIdDto>();
+		List<PolicyIdDto> policyIdList = new ArrayList<>();
 		
 		for(int i =0;i<policyData.size();i++)
 		{
@@ -43,14 +43,21 @@ public class PolicyDetailsServiceImpl implements PolicyDetailsService {
 			policyIdList.add(policyId);
 		}
 		
-		policyNames.setData(policyIdList);
-		policyNames.setMessage("list of id with names");
-		policyNames.setStatus("SUCCESS");
-		policyNames.setStatusCode(200);
-		policyNames.setMessage("Policy List with data is showing");
+		if(!policyIdList.isEmpty())
+		{		
+			policyNames.setData(policyIdList);
+			policyNames.setMessage("list of id with names");
+			policyNames.setStatus("SUCCESS");
+			policyNames.setStatusCode(200);
+			policyNames.setMessage("Policy List with data is showing");
+			return policyNames;
+		}else
+		{
+			throw new PolicyException("Policy Names are not available");
+		}
 		
 		
-		return policyNames;
+		//return policyNames;
 	}
 
 	
@@ -70,7 +77,7 @@ public class PolicyDetailsServiceImpl implements PolicyDetailsService {
 			policyResponse.setSumAssured(policy.get().getSumAssured());
 		}
 		
-		List<TermsDescription> termsList = new ArrayList<TermsDescription>();
+		List<TermsDescription> termsList = new ArrayList<>();
 		
 		TermsAndConditions terms = termsRepository.findBypolicyId(policyId);
 		termsDto.setEntryLimit(terms.getEntryLimit());
