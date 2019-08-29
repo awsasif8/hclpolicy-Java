@@ -19,15 +19,16 @@ public class MailApi {
 		String message2 = "You opted policy with policyNumber ";
 
 		String orderGenId1 = policyNumber.toString();
-
-		String message1 = message2.concat(orderGenId1);
+		String gen3=message2.concat(orderGenId1);
+String gen4="  Our HCL HR executive will get in touch with you shortly";
+		String message5 = gen3.concat(gen4);
 
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setFrom("sai555977charan@gmail.com");
 		mail.setSubject("Your Order Details");
 		mail.setTo(mailId);
-		mail.setText(message1);
-		mail.setSubject("Mail From Spring Boot");
+		mail.setText(message5);
+		mail.setSubject("Your policy details");
 
 		mailSender.send(mail);
 
