@@ -12,6 +12,8 @@ public class InfoDto {
 private String name;
 private int sapId;
 private String email;
+private String policyFor;
+private String  dependentName;
 
 
 }

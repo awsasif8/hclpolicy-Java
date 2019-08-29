@@ -31,12 +31,15 @@ public class CustomerInfoServiceImpl implements CustomerInfoService  {
 		details.setName(infoDto.getName());
 		
 		details.setSapId(infoDto.getSapId());
+		details.setDependentName(infoDto.getDependentName());
+		details.setPolicyFor(infoDto.getPolicyFor());
 		Integer num = 100000 + new Random().nextInt(900000);
 		details.setPolicyNumber(num);
 
 		customerRepository.save(details);
 
-		mailApi.sendMail(details.getEmail(), details.getPolicyNumber());
+	
+		//mailApi.sendMail(details.getEmail(), details.getPolicyNumber());
 String message="Your have opted for policy with policyNumber ";
 String h=num.toString();
 String message1=message.concat(h);
