@@ -5,6 +5,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.hcl.dto.PolicyIdDto;
 import com.hcl.repository.PolicyRepository;
 import com.hcl.repository.TermDetailsRepository;
 import com.hcl.service.PolicyDetailsServiceImpl;
@@ -20,5 +21,13 @@ public class PolicyDescriptionTest {
 	
 	@Mock
 	TermDetailsRepository termRepository;
+	
+	public PolicyIdDto policyIdDto()
+	{
+		PolicyIdDto policy = new PolicyIdDto();
+		policy.setPolicyId(1);
+		policy.setPolicyName("Test");
+		return policy;
+	}
 
 }

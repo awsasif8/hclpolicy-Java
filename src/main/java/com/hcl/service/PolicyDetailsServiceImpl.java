@@ -77,6 +77,9 @@ public class PolicyDetailsServiceImpl implements PolicyDetailsService {
 		termsDto.setTaxBenefit(terms.getTaxBenifit());
 		termsList.add(termsDto);
 		
+		policyResponse.setTaxBenefit(terms.getTaxBenifit());
+		policyResponse.setEntryLimit(terms.getEntryLimit());
+		
 		policyResponse.setStatus("SUCCESS");
 		policyResponse.setStatusCode(200);
 		policyResponse.setMessage("Policy Description is showing");

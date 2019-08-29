@@ -22,5 +22,7 @@ public class PolicyDescriptionResponseDto {
 	private String benefits;
 	private String features;
 	private Double sumAssured;
+	private String taxBenefit;
+	private String entryLimit;
 	private List<TermsDescription> terms;
 }
