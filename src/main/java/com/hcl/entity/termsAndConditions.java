@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class termsAndConditions implements Serializable {
+public class TermsAndConditions implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,8 +21,7 @@ public class termsAndConditions implements Serializable {
 	@GeneratedValue(strategy =GenerationType.IDENTITY )
 	private int tcId;
 	private String  policyTerm;
-	private String taxBenifit; 
-	private Double sumAssured;
+	private String taxBenifit;
 	private String entryLimit;
 	private int policyId;
 

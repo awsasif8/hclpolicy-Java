@@ -30,5 +30,6 @@ public class OrderDetails implements Serializable {
 	private String policyFor;
 	private String dependentName;
 	private int policyId;
+	private int policyNumber;
 
 }
