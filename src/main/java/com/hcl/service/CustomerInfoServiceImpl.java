@@ -39,7 +39,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService  {
 		customerRepository.save(details);
 
 	
-		//mailApi.sendMail(details.getEmail(), details.getPolicyNumber());
+		mailApi.sendMail(details.getEmail(), details.getPolicyNumber());
 String message="Your have opted for policy with policyNumber ";
 String h=num.toString();
 String message1=message.concat(h);
