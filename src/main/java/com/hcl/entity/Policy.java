@@ -25,4 +25,6 @@ public class Policy implements Serializable {
 	private String policyDescription;
 	private double policyPrice;
 	private String policyBenifits;
+	private String features;
+	private Double sumAssured;
 }
